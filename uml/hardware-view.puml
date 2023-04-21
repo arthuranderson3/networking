@@ -1,0 +1,16 @@
+@startuml
+Title Network hardware
+
+package Network {
+
+object Device {
+  slots[]
+}
+
+object Cable {
+  endpoint_1
+  endpoint_2
+}
+
+}
+@enduml
