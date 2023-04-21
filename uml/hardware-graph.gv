@@ -1,0 +1,44 @@
+graph Network {
+  compound=true;
+  label = "Network";
+  fontname = "Tahoma";
+  node [shape=square];
+ 
+  subgraph cluster_0 {
+    label = "router #1";
+    bgcolor="#26C6DA";
+    color="#00838F";
+    node [shape=square, color="#00838F"];
+    s0_p3 [label="p3"];
+    s0_p2 [label="p2"];
+    s0_p1 [label="p1"];
+    s0_p0 [label="p0"];
+  }
+
+  subgraph cluster_1 {
+    bgcolor="#64B5F6";
+    color="#1565C0";
+    node [shape=square,color="#1565C0"];
+    s1_p3 [label="p3"];
+    s1_p2 [label="p2"];
+    s1_p1 [label="p1"];
+    s1_p0 [label="p0"];
+    label = "router #2";
+  }
+
+  subgraph cluster_2 {
+    bgcolor="#FFA726";
+    color="#EF6C00";
+    node [shape=square,color="#EF6C00"];
+    s2_p3 [label="p3"];
+    s2_p2 [label="p2"];
+    s2_p1 [label="p1"];
+    s2_p0 [label="p0"];
+    label = "router #3";
+  }
+
+  s0_p0 -- s1_p0;
+  s0_p1 -- s1_p1;
+  s1_p0 -- s2_p0;
+  s1_p3 -- s2_p3;
+}
