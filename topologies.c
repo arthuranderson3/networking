@@ -1,0 +1,40 @@
+#include "graph.h"
+
+graph_t *
+build_first_topo(){
+
+#if 0
+
+                          +----------+
+                      0/4 |          |0/0
+         +----------------+   R0_re  +---------------------------+
+         |                |          |                           |
+         |                +----------+                           |
+         |                                                       |
+         |                                                       |
+         |                                                       |
+         |                                                       |
+         |0/5                                                    |0/1
+     +---+---+                                              +----+-----+
+     |       |0/3                                        0/2|          |
+     | R2_re +----------------------------------------------+    R1_re |
+     |       |                                              |          |
+     +-------+                                              +----------+
+
+#endif
+
+
+    graph_t *topo = create_new_graph("Hello World Generic Graph");
+    router_t *R0_re = create_graph_router(topo, "R0_re");
+    router_t *R1_re = create_graph_router(topo, "R1_re");
+    router_t *R2_re = create_graph_router(topo, "R2_re");
+
+    insert_link_between_two_routers(R0_re, R1_re, "eth0/0", "eth0/1", 1);
+    insert_link_between_two_routers(R1_re, R2_re, "eth0/2", "eth0/3", 1);
+    insert_link_between_two_routers(R0_re, R2_re, "eth0/4", "eth0/5", 1);
+
+    return topo;
+}
+
+
+
